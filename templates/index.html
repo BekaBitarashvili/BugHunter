@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/static/style.css" rel="stylesheet">
+    <title>BugHunter</title>
+</head>
+<body>
+    <div class="container">
+        <h1>ფორმა ხარვეზებისათვის</h1>
+        <form id="bugForm" action="/submit" method="POST">
+            <!-- Bug ID -->
+            <div class="field-group">
+                <h2>ხარვეზის ID</h2>
+                <label>ID ნომერი</label>
+                <input type="text" name="id_number">
+                <label>სახელი</label>
+                <input type="text" name="name">
+                <label>პასუხისმგებელი პირი</label>
+                <input type="text" name="reporter">
+                <label>თარიღი</label>
+                <input type="date" name="date">
+            </div>
+
+            <!-- Bug Overview -->
+            <div class="field-group">
+                <h2>Bug მიმოხილვა</h2>
+                <label>მიმოხილვა</label>
+                <input type="text" name="summary">
+                <label>URL მისამართი</label>
+                <input type="text" name="url">
+                <label>ფოტოსურათი</label>
+                <input type="text" name="screenshots">
+            </div>
+
+            <!-- Environment -->
+            <div class="field-group">
+                <h2>გარემო</h2>
+                <label>პლატფორმა</label>
+                <input type="text" name="platform">
+                <label>ბრაუზერი</label>
+                <input type="text" name="browser">
+                <label>ოპერაციული სისტემა</label>
+                <input type="text" name="os">
+            </div>
+
+            <!-- Bug Details -->
+            <div class="field-group">
+                <h2>Bug Details</h2>
+                <label>Steps to Reproduce</label>
+                <textarea name="steps"></textarea>
+                <label>Expected Results</label>
+                <textarea name="expected_results"></textarea>
+                <label>Actual Results</label>
+                <textarea name="actual_results"></textarea>
+                <label>Description</label>
+                <textarea name="description"></textarea>
+            </div>
+
+            <!-- Bug Tracking -->
+            <div class="field-group">
+                <h2>Bug Tracking</h2>
+                <label>Severity</label>
+                <input type="text" name="severity">
+                <label>Priority</label>
+                <input type="text" name="priority">
+                <label>Assigned to</label>
+                <input type="text" name="assigned_to">
+            </div>
+
+            <!-- Notes -->
+            <div class="field-group">
+                <h2>Notes</h2>
+                <label>Notes</label>
+                <textarea name="notes"></textarea>
+            </div>
+
+            <!-- Checkbox for empty fields -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="allowEmpty" name="allow_empty">
+                <label for="allowEmpty">Allow empty fields</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('bugForm').onsubmit = function(e) {
+            var allowEmpty = document.getElementById('allowEmpty').checked;
+            var inputs = document.querySelectorAll('input[type="text"], input[type="date"], textarea');
+            inputs.forEach(function(input) {
+                if (!allowEmpty && !input.value) {
+                    alert('Please fill all fields or check the "Allow empty fields" checkbox.');
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
