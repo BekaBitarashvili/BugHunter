@@ -10,13 +10,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>ფორმა ხარვეზებისათვის</h1>
+        <h1>რეპორტი ხარვეზებისათვის</h1>
         <form id="bugForm" action="/submit" method="POST">
             <div class="field-group">
                 <h2>ხარვეზის ID</h2>
                 <label>ID ნომერი</label>
                 <input type="text" name="id_number">
-                <label>სახელი</label>
+                <label>ხარვეზის დასახელება</label>
                 <input type="text" name="name">
                 <label>პასუხისმგებელი პირი</label>
                 <input type="text" name="reporter">
@@ -28,7 +28,7 @@
                 <h2>Bug მიმოხილვა</h2>
                 <label>მიმოხილვა</label>
                 <input type="text" name="summary">
-                <label>URL მისამართი</label>
+                <label>URL/მისამართი</label>
                 <input type="text" name="url">
                 <label>ფოტოსურათი</label>
                 <input type="text" name="screenshots">
@@ -45,39 +45,39 @@
             </div>
 
             <div class="field-group">
-                <h2>Bug Details</h2>
-                <label>Steps to Reproduce</label>
+                <h2>ხარვეზის დეტალები</h2>
+                <label>ნაბიჯები</label>
                 <textarea name="steps"></textarea>
-                <label>Expected Results</label>
+                <label>მოსალოდნელი შედეგი</label>
                 <textarea name="expected_results"></textarea>
-                <label>Actual Results</label>
+                <label>რეალური შედეგი</label>
                 <textarea name="actual_results"></textarea>
-                <label>Description</label>
+                <label>აღწერა</label>
                 <textarea name="description"></textarea>
             </div>
 
             <div class="field-group">
-                <h2>Bug Tracking</h2>
-                <label>Severity</label>
+                <h2>ხარვეზის მნიშვნელობა</h2>
+                <label>წონა</label>
                 <input type="text" name="severity">
-                <label>Priority</label>
+                <label>პრიორიტეტი</label>
                 <input type="text" name="priority">
-                <label>Assigned to</label>
+                <label>ხარვეზზე მუშაობს</label>
                 <input type="text" name="assigned_to">
             </div>
 
             <div class="field-group">
-                <h2>Notes</h2>
-                <label>Notes</label>
+                <h2>შენიშვნები</h2>
+                <label>შენიშვნა</label>
                 <textarea name="notes"></textarea>
             </div>
 
             <div class="checkbox-container">
                 <input type="checkbox" id="allowEmpty" name="allow_empty">
-                <label for="allowEmpty">Allow empty fields</label>
+                <label for="allowEmpty">ცარიელი ველების ვალიდაცია</label>
             </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
+            <button type="submit" class="submit-btn">რეპორტი</button>
         </form>
     </div>
     <script>
